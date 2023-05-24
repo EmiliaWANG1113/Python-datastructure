@@ -41,3 +41,7 @@
  # 表示法
   {key1:value1, key2:value2, ...}
 ```
+
+### 索引的切片運算 slice
+表示法為 List[start:end:step]
+
