@@ -1,47 +1,29 @@
-# Python-datastructure
+# Python-fuction
 
-### Tuple 元祖
-1. 有序
-2. 具備索引
-3. 不可變動
+### 函式的定義
 ```python
  # 表示法
- (a,b,c)
+ def 函數名稱(參數1,參數2,...):
+     函數主體...
+     …
+     return 回傳值1,回傳值2
 ```
 
-### List 清單
-1. 有序
-2. 具備索引
-3. 可變動
+### Lambda運算式
+lambda 參數1, 參數2,... : 函式本體
 ```python
  # 表示法
- [a,b,c]
+ max = lambda n1, n2 : n1 if n1>n2 else n2
+ print(max(10,5)) # 結果 =10
 ```
 
+### Pass by value, Pass by reference
+1. 傳遞參數時，若此參數是Immutable，則自動使用Pass by value
+2. 若此參數是Mutable，則自動使用Pass by reference的方式傳入
 
-### Set 集合
-1. 無序
-2. 不具備索引
-3. 內容不重複
-4. 可變動
-```python
- # 表示法
- {a,b,c}
- test=set()
- test.add("t1")
-```
+|     |Immutable(不可變動的)|Mutable(可變動的)|
+|  ----  | ----  | ----  |
+| 定義  | 變數建立以後就不可以再變動的 |變數建立以後仍然可以新增或移除資料 |
+| 型態   | numbers, booleans, strings, tuples |lists, dictionaries, set  |
 
-### Dict 字典
-1. 無序
-2. 可變動
-3. 可使用key來索引
-4. key不重複，也不可變動
-5. value可重複，也可變動
-```python
- # 表示法
-  {key1:value1, key2:value2, ...}
-```
-
-### 索引的切片運算 slice
-表示法為 List[start:end:step]
 
