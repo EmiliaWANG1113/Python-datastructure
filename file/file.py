@@ -1,42 +1,96 @@
 '''
-Write your module
+txt example
 '''
-import calculator
-print (calculator.plus(2, 3))
-print (calculator.minus(8, 5))
-print (calculator.multiplied(3, 4))
-print (calculator.divided(10, 5))
+with open('test.txt', 'w') as file:
+    file.write('Hello')
+    file.write('Pycone')
 
-'''
-datetime module example
-'''
-from datetime import datetime
-d1 = datetime.now()
-print(d1)
-print(d1.date())
+with open('test.txt', 'w') as file:
+    file.write('Hello \n')
+    file.write('Pycone\n')
 
-d2 = datetime(2016,10,17)
-print(d2)
+with open('test.txt', 'w') as file:
+    file.writelines(['Hello','Pycone'])
 
-delta = d2 - d1
-print(delta)
-print(delta.days)
-print(delta.seconds)
+with open('test.txt', 'r') as file:
+    content = file.read()
+    print (content)
 
-s1 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-print(s1,type(s1))
+with open('txt_example.txt', 'r') as file:
+    content = file.readlines()
+    print (content)
 
-d1 = datetime.strptime("2016-10-15 15:26:13","%Y-%m-%d %H:%M:%S")
-print(d1,type(d1))
-
+with open('txt_example.txt', 'r') as file:
+    for line in file:
+        print (line)
 
 '''
-os module example
+json example
 '''
+import json
+
+with open('player.json') as file:
+    player = json.load(file)
+    print (player) 
+    print (type(player))
+    print ("Player's name = ",player["name"])
+
+with open('warriors_player.json', "w") as file:
+    player = {}
+    player["name"] = "Curry"
+    player["age"] = 28
+    player["championship"] = [2014]
+    json.dump(player, file, indent=4)
+
+'''
+XML example
+'''
+import xml.etree.ElementTree as ET
+tree = ET.ElementTree(file='student.xml')
+print(type(tree))
+
+root = tree.getroot()
+print(type(root))
+print(root.tag,root.attrib)
+
+for child in root:
+    print(child.tag,child.attrib)
+
+print(root[0][1].text)
+
+
+'''
+csv example
+'''
+import csv
+with open('TSMC.csv', 'r') as datafile:
+    for row in csv.reader(datafile):
+        print (row)
+
+# warriors_data = [['Curry', 'G'], ['Durant', 'F']]
+# lakers_data = [['Kobe', 'G'], ['Gasol', 'F']]
+# with open('player.csv', 'w', newline='') as datafile:
+#     player = csv.writer(datafile, delimiter=',')
+#     player.writerow(warriors_data)
+#     player.writerow(lakers_data)
+
+# with open('Warriors.csv', 'w') as csvfile:
+#     fieldnames = ['first_name', 'last_name']
+#     player = csv.DictWriter(csvfile, fieldnames=fieldnames)
+#     player.writeheader()
+#     player.writerow({'first_name': 'Stephen', 'last_name': 'Curry'})
+#     player.writerow({'first_name': 'Kevin', 'last_name': 'Durant'})
+#     player.writerow({'first_name': 'Klay', 'last_name': 'Thompson'})
+
 import os
-print (os.getcwd())
-print (os.listdir())
-os.mkdir("test")
-print (os.listdir())
-os.rmdir("test")
-print (os.listdir())
+
+path = "C:\\Users\\user\\Desktop\\Python-for-Beginners\\src\\CH1"
+for root, dirnames,filenames in os.walk(path):
+    print("root = ",root)
+    print("dirnames = ",dirnames)
+    print("filenames = ",filenames)
+
+    # for file in filenames:
+    #     if file.endswith(".py"):
+    #         print("This is a Python file: ",file)
+    print()
