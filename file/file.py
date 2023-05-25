@@ -9,6 +9,7 @@ with open('test.txt', 'w') as file:
     file.write('Hello \n')
     file.write('Pycone\n')
 
+#writelines 一次寫入多行
 with open('test.txt', 'w') as file:
     file.writelines(['Hello','Pycone'])
 
@@ -35,6 +36,7 @@ with open('player.json') as file:
     print (type(player))
     print ("Player's name = ",player["name"])
 
+#輸出json檔案
 with open('warriors_player.json', "w") as file:
     player = {}
     player["name"] = "Curry"
